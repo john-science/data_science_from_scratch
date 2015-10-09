@@ -10,11 +10,17 @@ Like a lot of great ideas, Bayes' Theorem can be written down in a single equati
 
     P(A|B) = P(A) * P(B|A) / P(B)
 
-or, writing out `P(B)`:
+or, expanding `P(B)`:
 
     P(A|B) = P(A) * P(B|A) / [P(B|A) * P(A) + P(B|!A) * P(!A)]
 
-where each of term means:
+where this notation means:
+
+ * `P(X)` means "probability of X"
+ * `X|Y` means "X given Y"
+ * `!X` means "not X"
+
+Here `A` is what we are interested in measuring, and `B` is the measured result.
 
  * coming soon
 
