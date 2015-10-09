@@ -10,7 +10,7 @@ Like a lot of great ideas, Bayes' Theorem can be written down in a single equati
 
     P(A|B) = P(A) * P(B|A) / P(B)
 
-or, writing out `P(B)``:
+or, writing out `P(B)`:
 
     P(A|B) = P(A) * P(B|A) / [P(B|A) * P(A) + P(B|!A) * P(!A)]
 
