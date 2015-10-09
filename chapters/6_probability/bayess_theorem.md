@@ -1,10 +1,12 @@
 # Bayes' Theorem
 
-For a long time now, scientists have argued between two different approaches to probabilities: Frequentist and Bayesian. The argument is old, but both sides have become more polarized and fierce over time. Perhaps it is a testiment to how much people care about doing science right. Or perhaps it is just another example of the Narcissism of Small Differences.
+In the trenches of science, no battle has lasted longer or become more fierce than the one between Frequentists and Bayesians. If you think no one is going to war over probability theory, you're wrong. And don't let anyone tell you that one side has claimed victory. Thomas Bayes died in 1761 and at this point it is a holy war; no one will win. The best you can do is understand the two approaches and give them both a healthy dose of skepticism. 
 
-In order to join the conversation in the modern world of data science, or statistics at large, you will need to understand Bayes' Theorem.
+To that end, let's take a look at Bayes' Theorem.
 
 #### The Equation
+
+Like a lot of great ideas, Bayes' Theorem can be written down in a single equation, but understanding all the implications takes time.
 
  * coming soon
 
