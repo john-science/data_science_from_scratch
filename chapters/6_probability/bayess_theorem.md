@@ -8,6 +8,14 @@ To that end, let's take a look at Bayes' Theorem.
 
 Like a lot of great ideas, Bayes' Theorem can be written down in a single equation, but understanding all the implications takes time.
 
+    P(A|B) = P(A) * P(B|A) / P(B)
+
+or, writing out `P(B)``:
+
+    P(A|B) = P(A) * P(B|A) / [P(B|A) * P(A) + P(B|!A) * P(!A)]
+
+where each of term means:
+
  * coming soon
 
 #### The Classic Example - Mamograms
