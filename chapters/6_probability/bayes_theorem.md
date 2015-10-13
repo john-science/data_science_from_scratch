@@ -87,7 +87,9 @@ Now we can re-draw the table above and list what people really want to know:
 |                      | Real Chance of Cancer |
 | -------------------- | :-------------------: |
 | Positive Test Result |        0.075          |
-| Negative Test Result |        0.022          |
+| Negative Test Result |        0.002          |
+
+So, what have we learned? Getting a positive result on a mamogram is reason enough to do more testing, but you still only have a 7.5% chance of having breast cancer. Breathe easier. And if you get a negative result on your breast exam you only have a 0.2% chance of cancer and you can rest easy (but don't forget to get tested next year).
 
 #### Interpretting Bayes' Theorem
 
