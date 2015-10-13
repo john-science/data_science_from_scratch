@@ -82,7 +82,7 @@ This is a key difference in interpretting your test result: `P(A|B)` vs `P(B|A)`
 
 Now we can re-draw the table above and list what people really want to know:
 
-> What is the chance that you have breast cancer, given your test result:
+> What is the chance that you have breast cancer, given your test result?
 
 |                      | Real Chance of Cancer |
 | -------------------- | :-------------------: |
@@ -90,6 +90,8 @@ Now we can re-draw the table above and list what people really want to know:
 | Negative Test Result |        0.022          |
 
 #### Interpretting Bayes' Theorem
+
+Obviously, in order to use Bayes' Theorem you need to either: (a) know a lot of prior information about your tests, or (b) be able to make informed decisions about the probbilities involved.
 
  * coming soon
 
