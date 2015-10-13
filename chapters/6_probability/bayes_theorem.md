@@ -23,9 +23,10 @@ where this notation means:
 
 Or, defining each term conceptually:
 
+ * P(A) = Chance of `A` actually being true.
+ * P(B) = Chance of a positive test result.
  * P(A|B) = Chance of `A`, given a positive test result `B`.
  * P(B|A) = Chance of a positive test result `B` given `A`.
- * P(A) = Chance of `A`
  * P(not A) = Chance of not `A`.
  * P(B|not A) = Chance of a positive test result `B` given not `A`.
 
@@ -33,7 +34,7 @@ Or, defining each term conceptually:
 
 The classic Bayes' Theorem example is the mamogram.
 
-Let's say we know some things about the mamogram test:
+Over the past decades many women have gotten breast cancer and many more have gotten mamograms. This gives scientists much data to analyze the effectiveness of the mamogram. Here are the results of those analysis:
 
  * 1% of women have breast cancer
  * a mamogram will catch breast cancer 80% of the time
@@ -45,7 +46,7 @@ To put this in the terminology of Bayes' Theorem:
  * P(B|A) = 0.8
  * P(B|not A) = 0.1
 
-Of course, since we know those things, we also know the converse of each:
+And since we know those things, we also know the converse of each:
 
  * P(not A) = 0.99
  * P(not B|A) = 0.2
@@ -58,11 +59,11 @@ So we might draw a True/False, Positive/Negative probability table like this:
 | Test Positive | 0.8  | 0.1   |
 | Test Negative | 0.2  | 0.9   |
 
-But that table isn't the whole story, it's just the raw data. What if you want to know:
+But that table isn't the whole story, it's just the raw data. What a patient will want to know is:
 
-> You just got your mamogram result, now what is the chance you really have cancer?
+> I just got my mamogram result, now what is the chance I have cancer?
 
-We can now calculate the chance of getting *any* positive result:
+We can calculate the chance of getting *any* positive result:
 
     P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
     P(B) = 0.8 * 0.01 + 0.1 * 0.99 = 0.107
@@ -76,29 +77,60 @@ And the chance that you have cancer, given a negative test result:
 
     P(A|not B) = P(not B|A) * P(A) / P(not B)
     P(A|not B) = P(not B|A) * P(A) / [P(not B|A) * P(A) + P(not B|not A) * P(not A)]
-    P(A|not B) = 0.2 * 0.01 / [0.2 * 0.01 + 0.9 * 0.99] = 0.022
+    P(A|not B) = 0.2 * 0.01 / [0.2 * 0.01 + 0.9 * 0.99] = 0.002
 
-This is a key difference in interpretting your test result: `P(A|B)` vs `P(B|A)`. Before you even got your test done, you knew that the test would only identify breast cancer 80% of the time (`P(B|A)`). But now that you have a positive result, you know you still only have a 7.5% chance of having cancer. This is because it is *far* more likely that your test is a False Positive.
+This is a key difference in interpretting your test result: `P(A|B)` vs `P(B|A)`. You know the mamogram will only identify breast cancer 80% of the time (`P(B|A)`). But now that you have a positive result, you know you still only have a 7.5% chance of having cancer. This is because it is *far* more likely that your test is a False Positive.
 
 Now we can re-draw the table above and list what people really want to know:
 
 > What is the chance that you have breast cancer, given your test result?
 
 |                      | Real Chance of Cancer |
-| -------------------- | :-------------------: |
+| :------------------- | :-------------------: |
 | Positive Test Result |        0.075          |
 | Negative Test Result |        0.002          |
 
-So, what have we learned? Getting a positive result on a mamogram is reason enough to do more testing, but you still only have a 7.5% chance of having breast cancer. Breathe easier. And if you get a negative result on your breast exam you only have a 0.2% chance of cancer and you can rest easy (but don't forget to get tested next year).
+So, what have we learned? Getting a positive result on a mamogram is reason enough to do more testing, but you still only have a 7.5% chance of having breast cancer; stay calm. And if you get a negative result, you only have a 0.2% chance of cancer; rest easy (but don't forget to get tested again next year).
 
 #### Interpretting Bayes' Theorem
 
-Obviously, in order to use Bayes' Theorem you need to either: (a) know a lot of prior information about your tests, or (b) be able to make informed decisions about the probbilities involved.
+Obviously, in order to use Bayes' Theorem you need a lot of information. If you get the information from hard statistics, as is the case for mamograms above, we call those [posterior probabilities](https://en.wikipedia.org/wiki/Posterior_probability). If, on the other hand, no hard information is available and you have to make assumptions, we all these [prior probabilities](https://en.wikipedia.org/wiki/Prior_probability).
 
- * coming soon
- * [prior and posterior terms](http://www.programminglogic.com/bayes-theorem-with-examples/)
- * [Prior Probability](https://en.wikipedia.org/wiki/Prior_probability)
- * [Posterior Probability](https://en.wikipedia.org/wiki/Posterior_probability)
+In the real world, we often find ourselves in the situation of having to create some "uninformed prior assumptions". For instance, let us place ourselves in the mind a 40-year-old woman living in the year 2041 in Nihonmatsu, Japan. At the age of 10, the Fukushima nuclear power plant disaster occured, and we spent our whole lives in Nihonmatsu, the city closest to the Fukushima Exclusion Zone.
+
+If we are a positive person, and trust in the efforts of the nuclear decontamination process, we might say that nothing about our chances of breast cancer has changed from the situation above. But perhaps we are a very negative person and think that 3% of women in Nihonmatsu will have breast cancer, a dramatic increase from the world average of 1%. This would change our mamogram results considerably:
+
+    P(A|B) = P(B|A) * P(A) / P(B)
+    P(A|B) = 0.8 * 0.03 / (0.8 * 0.03 + 0.1 * 0.97) = 0.198
+
+    P(A|not B) = P(not B|A) * P(A) / P(not B)
+    P(A|not B) = P(not B|A) * P(A) / [P(not B|A) * P(A) + P(not B|not A) * P(not A)]
+    P(A|not B) = 0.2 * 0.03 / (0.2 * 0.03 + 0.9 * 0.97) = 0.007
+
+That is, our expectation of the effectiveness of the mamogram test itself hasn't changed, but `P(A)` and `P(B)` have. This would give us the far more pessimistic table of results:
+
+|                      | Real Chance of Cancer |
+| :------------------- | :-------------------: |
+| Positive Test Result |        0.198          |
+| Negative Test Result |        0.007          |
+
+Let us imagine another scenario. Perhaps it in the year 2041 the mamogram test will be more effective. So instead of only an 80% chance of identifying cancer, it has a 95% of chance (`P(B|A) = 0.95`). Assuming the worldwide rate of breast cancer remains at 1%, we would find:
+
+    P(A|B) = P(B|A) * P(A) / P(B)
+    P(A|B) = 0.95 * 0.01 / (0.95 * 0.01 + 0.1 * 0.99) = 0.087
+
+    P(A|not B) = P(not B|A) * P(A) / P(not B)
+    P(A|not B) = P(not B|A) * P(A) / [P(not B|A) * P(A) + P(not B|not A) * P(not A)]
+    P(A|not B) = 0.05 * 0.01 / [0.05 * 0.01 + 0.95 * 0.99] = 0.0005
+
+In this situation we could interpret our results to mean:
+
+|                      | Real Chance of Cancer |
+| :------------------- | :-------------------: |
+| Positive Test Result |        0.087          |
+| Negative Test Result |        0.0005         |
+
+One can imagine this kind of analysis is also useful to the designers of mamogram equipment. They currently only identify 80% of breast cancer (`P(B|A)`) and 10% of all women tested get positive results (`P(B|not A)`). In an ideal world they would improve both of these numbers. But no one has infinite money, so they must decide *where* they want to spend their R&D money first. If the goal is to improve the confidence of patients who take the test, the tables above could be recreated with various values of `P(B|A)` and `P(B|not A)` to see which will be the most effective for the least amount of money.
 
 #### More Examples - Practice, Practice, Practice
 
