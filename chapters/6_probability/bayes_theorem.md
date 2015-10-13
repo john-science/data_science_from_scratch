@@ -94,10 +94,16 @@ Now we can re-draw the table above and list what people really want to know:
 Obviously, in order to use Bayes' Theorem you need to either: (a) know a lot of prior information about your tests, or (b) be able to make informed decisions about the probbilities involved.
 
  * coming soon
+ * [prior and posterior terms](http://www.programminglogic.com/bayes-theorem-with-examples/)
+ * [Prior Probability](https://en.wikipedia.org/wiki/Prior_probability)
+ * [Posterior Probability](https://en.wikipedia.org/wiki/Posterior_probability)
 
 #### More Examples - Practice, Practice, Practice
 
  * coming soon
+ * [The Monty Hall Problem](http://www.cut-the-knot.org/Probability/BayesTheorem.shtml)
+ * [3 good examples](http://www.statlect.com/bayes_rule_exercise_set_1.htm)
+ * [Rain on your wedding day](http://www.stattrek.com/probability/bayes-theorem.aspx)
 
 #### References
 
@@ -105,7 +111,15 @@ Seemingly every pocket protector on the intertubes has their own explanation for
 
 Here are some of the more helpful links:
 
- * [Wikipedia - Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)
- * [BetterExplained - Bayes' Theorem](http://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/)
- * [Oscar Bonilla - Bayes' Theorem](https://oscarbonilla.com/2009/05/visualizing-bayes-theorem/)
- * [New Yorker- What Nate Silver Gets Wrong](http://www.newyorker.com/books/page-turner/what-nate-silver-gets-wrong)
+ * Bayes' Theorem Explained
+     * [Wikipedia - Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)
+     * [BetterExplained - Bayes' Theorem](http://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/)
+     * [Oscar Bonilla - Bayes' Theorem](https://oscarbonilla.com/2009/05/visualizing-bayes-theorem/)
+     * [New Yorker- What Nate Silver Gets Wrong](http://www.newyorker.com/books/page-turner/what-nate-silver-gets-wrong)
+ * Jargon
+     * [Wikipedia - Prior Probability](https://en.wikipedia.org/wiki/Prior_probability)
+     * [Wikipedia - Posterior Probability](https://en.wikipedia.org/wiki/Posterior_probability)
+ * Examples
+     *  [Cut the Know - The Monty Hall Problem](http://www.cut-the-knot.org/Probability/BayesTheorem.shtml)
+     *  [Stat Trek - Rain on Your Wedding Day example](http://www.stattrek.com/probability/bayes-theorem.aspx)
+     *  [Statlect - 3 examples](http://www.statlect.com/bayes_rule_exercise_set_1.htm)
