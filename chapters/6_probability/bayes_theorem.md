@@ -94,11 +94,11 @@ So, what have we learned? Getting a positive result on a mamogram is reason enou
 
 #### Interpretting Bayes' Theorem
 
-Obviously, in order to use Bayes' Theorem you need a lot of information. If you get the information from hard statistics, as is the case for mamograms above, we call those [posterior probabilities](https://en.wikipedia.org/wiki/Posterior_probability). If, on the other hand, no hard information is available and you have to make assumptions, we all these [prior probabilities](https://en.wikipedia.org/wiki/Prior_probability).
+Obviously, in order to use Bayes' Theorem you need a lot of information. If you get the information from hard data, as is the case for mamograms above, we call those [posterior probabilities](https://en.wikipedia.org/wiki/Posterior_probability). If, on the other hand, no data is available and you have to make assumptions, we all these [prior probabilities](https://en.wikipedia.org/wiki/Prior_probability).
 
-In the real world, we often find ourselves in the situation of having to create some "uninformed prior assumptions". For instance, let us place ourselves in the mind a 40-year-old woman living in the year 2041 in Nihonmatsu, Japan. At the age of 10, the Fukushima nuclear power plant disaster occured, and we spent our whole lives in Nihonmatsu, the city closest to the Fukushima Exclusion Zone.
+In the real world, we often find ourselves in the situation of having to create some "uninformed prior assumptions". For instance, let us place ourselves in the mind a 50-year-old woman living in the year 2041 in Nihonmatsu, Japan. At the age of 20, the Fukushima nuclear power plant disaster occured, and we spent our whole life in Nihonmatsu, the city closest to the Fukushima Exclusion Zone.
 
-If we are a positive person, and trust in the efforts of the nuclear decontamination process, we might say that nothing about our chances of breast cancer has changed from the situation above. But perhaps we are a very negative person and think that 3% of women in Nihonmatsu will have breast cancer, a dramatic increase from the world average of 1%. This would change our mamogram results considerably:
+If we are a positive person, we might say that nothing has changed from the mamogram scenario above. But perhaps we are a very negative person and think that 3% of women in Nihonmatsu will have breast cancer (a dramatic increase from the world average of 1%). This would change significantly change how we interpret our mamogram results:
 
     P(A|B) = P(B|A) * P(A) / P(B)
     P(A|B) = 0.8 * 0.03 / (0.8 * 0.03 + 0.1 * 0.97) = 0.198
@@ -107,7 +107,7 @@ If we are a positive person, and trust in the efforts of the nuclear decontamina
     P(A|not B) = P(not B|A) * P(A) / [P(not B|A) * P(A) + P(not B|not A) * P(not A)]
     P(A|not B) = 0.2 * 0.03 / (0.2 * 0.03 + 0.9 * 0.97) = 0.007
 
-That is, our expectation of the effectiveness of the mamogram test itself hasn't changed, but `P(A)` and `P(B)` have. This would give us the far more pessimistic table of results:
+Our expectation of the effectiveness of the mamogram test itself hasn't changed, but `P(A)` and `P(B)` have. This gives us the far more pessimistic table of results:
 
 |                      | Real Chance of Cancer |
 | :------------------- | :-------------------: |
@@ -130,28 +130,30 @@ In this situation we could interpret our results to mean:
 | Positive Test Result |        0.087          |
 | Negative Test Result |        0.0005         |
 
-One can imagine this kind of analysis is also useful to the designers of mamogram equipment. They currently only identify 80% of breast cancer (`P(B|A)`) and 10% of all women tested get positive results (`P(B|not A)`). In an ideal world they would improve both of these numbers. But no one has infinite money, so they must decide *where* they want to spend their R&D money first. If the goal is to improve the confidence of patients who take the test, the tables above could be recreated with various values of `P(B|A)` and `P(B|not A)` to see which will be the most effective for the least amount of money.
+One can imagine this kind of analysis is also useful to the designers of mamogram equipment. They currently only identify 80% of breast cancer (`P(B|A)`) and 10% of women without breast cancer get positive results (`P(B|not A)`). In an ideal world they would improve both of these numbers. But no one has infinite money, so they must decide *where* they want to spend their R&D money first. If the goal is to improve the confidence of patients who take the test, the tables above could be recreated with various values of `P(B|A)` and `P(B|not A)` to see which will be the most effective for the least amount of money.
 
-#### The Monty Hall Problem - Another Great Example
+#### The Monty Hall Problem
 
-Another classic problem in probability is The Monty Hall problem. The story goes that there was a TV game show called "Let's Make a Deal". A contestant was brough on stage and shown three doors, behind one of which was a new car. They could choose one door and then Monty Hall would open a different door that contained nothing. The contestant then had the chance to either stick with their door or change their minds and choose the remaining unopened door.
+> A classic example of how just a little math can change the way you see the world.
 
-The surprising result is that it is *always* a better idea to switch to the new door than to stay with your original choice. Since this is the kind of thing that causes probability students to attack their teachers, let's take try explaining the situation using Bayes' Theorem.
+Once upon a time there was a TV game show called "Let's Make a Deal". A contestant was brought on stage and shown three doors, behind one was a new car. First, the contestant would select a door. Then the host (Monty Hall) would open a different door that contained nothing. The contestant then had the chance to either stick with their door or switch to the remaining unopened door.
 
-We will define the problem as follows:
+The surprising result is that it is *always* a better idea to switch to the new door than to stay with your original choice.
+
+Let us analyze the game using Bayes' Theorem. First, we will make some definitions:
 
  * The doors in question are labeled: `A`, `B`, and `C`.
  * The door you choose first is `A`.
  * The door the host reveals is `B`.
 
-Now we can start to look at the probabilities involved:
+We already know some of the probabilities involved:
 
  * The chance of the car is behind door `X` is 1 in 3: `P(X) = 1/3`.
  * The chance that Monty opens door `B` if the car is behind `A` is 1 in 2: `P(Monty opens B|A) = 1/2`.
  * The chance that Monty opens door `B` if the car is behind `B` is zero: `P(Monty opens B|B) = 0`.
  * The chance that Monty opens door `B` if the car is behind `C` is: `P(Monty opens B|C) = 1`.
 
-Okay, that is all of our prior knowledge of the situation. Here is how we would model the game show using Bayes' Theorem.
+That is all of our prior knowledge of the situation. Now let's write down Bayes' Theorem for your two choices:
 
 If you stick with door `A`:
 
@@ -161,10 +163,10 @@ If you switch to door `C`:
 
     P(C|Monty opens B) = P(C) * P(Monty opens B|C) / P(Monty opens B)
 
-The one thing we have left to calculate is the total chance that Monty will open door `B`:
+The denominator to both equations are the same. In order to calculate the chance that Monty will open door `B`, we need to consider the possibility that the car is behind each of the three doors:
 
     P(Monty opens B) = P(A) * P(Monty opens B|A) + P(B) * P(Monty opens B|B) + P(C) * P(Monty opens B|C)
-                     = 1/3 * 1/2 + 1/3 * 0 + 1/3 * 1 = 1/6 + 0 + 1/3
+                     = (1/3 * 1/2) + (1/3 * 0) + (1/3 * 1) = 1/6 + 0 + 1/3
                      = 1/2
 
 Now we can solve our two equations.
@@ -181,11 +183,11 @@ If you switch to door `C`:
                        = 1/3 * 1 / 1/2
                        = 2/3
 
-And there you have it. If you stick with your first choice you have a `1/3` chance of winning that car. And if you switch to the other door you have a `2/3` chance. It is always wiser to switch to the other door.
+There you have it. Your chances of winning the car double if you switch to the other door.
 
-Does this math leave a bad taste in your mouth? Do you still want to know *why*? It's because when you made your choice it was a random 1-in-3 chance. But Monty was limited and could only ever get rid of a bad choice. Monty's decision was limited and constrained by yours. Your original choice of door does affect the outcome, because it affects Monty's decision.
+For many, this result does not seem intuitively right. *Why* would switching to the other door increase your chances? The usual argument here is that it seems more intuitive that each of the two remaining doors should have a 50% chance of being right. But this is too simple. When the contestant picks the first door they have a 1-in-3 chance: it's totally random. But the door Monty Hall opens isn't random, because he can't select the door with the car behind it. And you have to take into account two scenarios. In scenario (a) you selected the right door and Monty can pick either of the others. In scenario (b) you selected the wrong door and Monty only has one option. But scenario (b) is twice as likely as scenario (a). So it's a good idea to act like you're in scenario (b), which means switching your door choice.
 
-Are you *still* not convinced? It's good to be a skeptic. One thing we could do is actually try the game a few thousand tries and see if it's true. That would be slow and boring, so here is an [iPython notebook simulating the game hundreds of thousands of times](monty_hall_problem.ipynb). See for yourself, it really is true.
+Are you *still* not convinced? It's good to be a skeptic. One thing we can do is use computers to simulate the game many thousands of times and see what happens. If you are familiar with Python, check out [this iPython notebook that simulates the Monty Hall Game](monty_hall_problem.ipynb). See for yourself, switching your door doubles your chances of winning a car.
 
 #### References
 
