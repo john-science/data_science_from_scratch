@@ -32,9 +32,9 @@ Or, defining each term conceptually:
 
 #### The Classic Example - Mamograms
 
-The classic Bayes' Theorem example is the mamogram.
+A classic Bayes' Theorem example is the mamogram.
 
-Over the past decades many women have gotten breast cancer and many more have gotten mamograms. This gives scientists much data to analyze the effectiveness of the mamogram. Here are the results of those analysis:
+Because such a large number of women have had mamograms and/or breast cancer, there is a lot of data avaailble for scientists to analyze the effectiveness of the mamogram. Here are the results of those analysis:
 
  * 1% of women have breast cancer
  * a mamogram will catch breast cancer 80% of the time
@@ -46,7 +46,7 @@ To put this in the terminology of Bayes' Theorem:
  * P(B|A) = 0.8
  * P(B|not A) = 0.1
 
-And since we know those things, we also know the converse of each:
+And we can easily calculate the converse of each:
 
  * P(not A) = 0.99
  * P(not B|A) = 0.2
@@ -59,11 +59,11 @@ So we might draw a True/False, Positive/Negative probability table like this:
 | Test Positive | 0.8  | 0.1   |
 | Test Negative | 0.2  | 0.9   |
 
-But that table isn't the whole story, it's just the raw data. What a patient will want to know is:
+But that isn't the whole story, it's just data. What a patient will want to know is:
 
 > I just got my mamogram result, now what is the chance I have cancer?
 
-We can calculate the chance of getting *any* positive result:
+First, we can calculate the chance of getting *any* positive result:
 
     P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
     P(B) = 0.8 * 0.01 + 0.1 * 0.99 = 0.107
@@ -90,7 +90,7 @@ Now we can re-draw the table above and list what people really want to know:
 | Positive Test Result |        0.075          |
 | Negative Test Result |        0.002          |
 
-So, what have we learned? Getting a positive result on a mamogram is reason enough to do more testing, but you still only have a 7.5% chance of having breast cancer; stay calm. And if you get a negative result, you only have a 0.2% chance of cancer; rest easy (but don't forget to get tested again next year).
+So, what have we learned? Getting a positive result on a mamogram is reason enough to do more testing, but you still only have a 7.5% chance of having breast cancer; stay calm. And if you get a negative result, you only have a 0.2% chance of cancer; rest easy (but get tested again next year).
 
 #### Interpretting Bayes' Theorem
 
