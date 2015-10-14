@@ -185,7 +185,7 @@ And there you have it. If you stick with your first choice you have a `1/3` chan
 
 Does this math leave a bad taste in your mouth? Do you still want to know *why*? It's because when you made your choice it was a random 1-in-3 chance. But Monty was limited and could only ever get rid of a bad choice. Monty's decision was limited and constrained by yours. Your original choice of door does affect the outcome, because it affects Monty's decision.
 
-Are you *still* not convinced? It's good to be a skeptic. One thing we could do is actually try the game a few thousand tries and see if it's true. That would be slow and boring, so here is an [iPython notebook simulating the game a few hundred thousand times](). See for yourself, it reall is true.
+Are you *still* not convinced? It's good to be a skeptic. One thing we could do is actually try the game a few thousand tries and see if it's true. That would be slow and boring, so here is an [iPython notebook simulating the game hundreds of thousands of times](monty_hall_problem.ipynb). See for yourself, it really is true.
 
 #### References
 
@@ -202,13 +202,6 @@ Here are some of the more helpful links:
      * [Wikipedia - Prior Probability](https://en.wikipedia.org/wiki/Prior_probability)
      * [Wikipedia - Posterior Probability](https://en.wikipedia.org/wiki/Posterior_probability)
  * Examples
-     *  [Curiouser - The Monty Hall Problem]( P(A|Monty opens B) 	= p(A) * p(Monty opens B|A)/p(Monty opens B)
-
-	= (1/6)/(1/2)
-
-	= 1/3
-
-and
-P(C|Monty opens B) 	= p(C) * p(Monty opens B|C)/p(Monty opens B))
+     *  [Curiouser - The Monty Hall Problem](http://www.curiouser.co.uk/monty/montyhall2.htm)
      *  [Stat Trek - Rain on Your Wedding Day example](http://www.stattrek.com/probability/bayes-theorem.aspx)
      *  [Statlect - 3 examples](http://www.statlect.com/bayes_rule_exercise_set_1.htm)
