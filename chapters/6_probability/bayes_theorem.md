@@ -24,7 +24,7 @@ where this notation means:
 Or, defining each term conceptually:
 
  * P(A) = Chance of `A` actually being true.
- * P(B) = Chance of a positive test result.
+ * P(B) = Chance of any positive test result (false positive OR true positive).
  * P(A|B) = Chance of `A`, given a positive test result `B`.
  * P(B|A) = Chance of a positive test result `B` given `A`.
  * P(not A) = Chance of not `A`.
@@ -132,12 +132,60 @@ In this situation we could interpret our results to mean:
 
 One can imagine this kind of analysis is also useful to the designers of mamogram equipment. They currently only identify 80% of breast cancer (`P(B|A)`) and 10% of all women tested get positive results (`P(B|not A)`). In an ideal world they would improve both of these numbers. But no one has infinite money, so they must decide *where* they want to spend their R&D money first. If the goal is to improve the confidence of patients who take the test, the tables above could be recreated with various values of `P(B|A)` and `P(B|not A)` to see which will be the most effective for the least amount of money.
 
-#### More Examples - Practice, Practice, Practice
+#### The Monty Hall Problem - Another Great Example
 
- * coming soon
- * [The Monty Hall Problem](http://www.cut-the-knot.org/Probability/BayesTheorem.shtml)
- * [3 good examples](http://www.statlect.com/bayes_rule_exercise_set_1.htm)
- * [Rain on your wedding day](http://www.stattrek.com/probability/bayes-theorem.aspx)
+Another classic problem in probability is The Monty Hall problem. The story goes that there was a TV game show called "Let's Make a Deal". A contestant was brough on stage and shown three doors, behind one of which was a new car. They could choose one door and then Monty Hall would open a different door that contained nothing. The contestant then had the chance to either stick with their door or change their minds and choose the remaining unopened door.
+
+The surprising result is that it is *always* a better idea to switch to the new door than to stay with your original choice. Since this is the kind of thing that causes probability students to attack their teachers, let's take try explaining the situation using Bayes' Theorem.
+
+We will define the problem as follows:
+
+ * The doors in question are labeled: `A`, `B`, and `C`.
+ * The door you choose first is `A`.
+ * The door the host reveals is `B`.
+
+Now we can start to look at the probabilities involved:
+
+ * The chance of the car is behind door `X` is 1 in 3: `P(X) = 1/3`.
+ * The chance that Monty opens door `B` if the car is behind `A` is 1 in 2: `P(Monty opens B|A) = 1/2`.
+ * The chance that Monty opens door `B` if the car is behind `B` is zero: `P(Monty opens B|B) = 0`.
+ * The chance that Monty opens door `B` if the car is behind `C` is: `P(Monty opens B|C) = 1`.
+
+Okay, that is all of our prior knowledge of the situation. Here is how we would model the game show using Bayes' Theorem.
+
+If you stick with door `A`:
+
+    P(A|Monty opens B) = P(A) * P(Monty opens B|A) / P(Monty opens B)
+
+If you switch to door `C`:
+
+    P(C|Monty opens B) = P(C) * P(Monty opens B|C) / P(Monty opens B)
+
+The one thing we have left to calculate is the total chance that Monty will open door `B`:
+
+    P(Monty opens B) = P(A) * P(Monty opens B|A) + P(B) * P(Monty opens B|B) + P(C) * P(Monty opens B|C)
+                     = 1/3 * 1/2 + 1/3 * 0 + 1/3 * 1 = 1/6 + 0 + 1/3
+                     = 1/2
+
+Now we can solve our two equations.
+
+If you stick with door `A`:
+
+    P(A|Monty opens B) = P(A) * P(Monty opens B|A) / P(Monty opens B)
+                       = 1/3 * 1/2 / 1/2
+                       = 1/3
+
+If you switch to door `C`:
+
+    P(C|Monty opens B) = P(C) * P(Monty opens B|C) / P(Monty opens B)
+                       = 1/3 * 1 / 1/2
+                       = 2/3
+
+And there you have it. If you stick with your first choice you have a `1/3` chance of winning that car. And if you switch to the other door you have a `2/3` chance. It is always wiser to switch to the other door.
+
+Does this math leave a bad taste in your mouth? Do you still want to know *why*? It's because when you made your choice it was a random 1-in-3 chance. But Monty was limited and could only ever get rid of a bad choice. Monty's decision was limited and constrained by yours. Your original choice of door does affect the outcome, because it affects Monty's decision.
+
+Are you *still* not convinced? It's good to be a skeptic. One thing we could do is actually try the game a few thousand tries and see if it's true. That would be slow and boring, so here is an [iPython notebook simulating the game a few hundred thousand times](). See for yourself, it reall is true.
 
 #### References
 
@@ -154,6 +202,13 @@ Here are some of the more helpful links:
      * [Wikipedia - Prior Probability](https://en.wikipedia.org/wiki/Prior_probability)
      * [Wikipedia - Posterior Probability](https://en.wikipedia.org/wiki/Posterior_probability)
  * Examples
-     *  [Cut the Know - The Monty Hall Problem](http://www.cut-the-knot.org/Probability/BayesTheorem.shtml)
+     *  [Curiouser - The Monty Hall Problem]( P(A|Monty opens B) 	= p(A) * p(Monty opens B|A)/p(Monty opens B)
+
+	= (1/6)/(1/2)
+
+	= 1/3
+
+and
+P(C|Monty opens B) 	= p(C) * p(Monty opens B|C)/p(Monty opens B))
      *  [Stat Trek - Rain on Your Wedding Day example](http://www.stattrek.com/probability/bayes-theorem.aspx)
      *  [Statlect - 3 examples](http://www.statlect.com/bayes_rule_exercise_set_1.htm)
